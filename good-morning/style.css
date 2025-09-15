@@ -1,0 +1,83 @@
+/* General */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  background: linear-gradient(270deg, #fff7cc, #ffeb80, #ffe066);
+  background-size: 600% 600%;
+  animation: gradientShift 15s ease infinite;
+  overflow: hidden;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.center {
+  max-width: 90%;
+  padding: 1.5em;
+  z-index: 2;
+}
+
+.title { font-size: clamp(2em, 6vw, 3em); margin-bottom: 0.3em; }
+.subtitle { font-size: clamp(1em, 4vw, 1.2em); margin-bottom: 1.5em; }
+
+.btn {
+  display: inline-block;
+  background: #ffd633;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: clamp(1em, 4vw, 1.2em);
+  border: none;
+  transition: transform 0.2s, background 0.2s;
+}
+.btn:hover { transform: scale(1.1); background: #ffcc00; }
+
+/* Card */
+/* Card */
+.card {
+  background: white;
+  padding: 1em 1.2em;          /* less padding */
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  font-size: 1em;
+  line-height: 1.6;
+  animation: fadeIn 1.5s ease;
+
+  max-width: 500px;
+  width: 85%;
+  margin: auto;
+
+  /* Less height */
+  max-height: 60vh;            /* never taller than 60% of screen */
+  overflow-y: auto;            /* scroll if text is too long */
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+@keyframes rise {
+  from { transform: translateY(0) scale(0.8); opacity: 0; }
+  to { transform: translateY(-110vh) scale(1.2); opacity: 1; }
+}
+
+/* Floating Ducks */
+.floating-duck {
+  position: absolute;
+  width: 50px; height: 50px;
+  background: url("images/duck.png") no-repeat center/contain;
+  bottom: -60px;
+  animation: rise 10s infinite ease-in;
+  opacity: 0.9;
+}
